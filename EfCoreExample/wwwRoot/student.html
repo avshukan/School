@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="./lib/bootstrap-4.0.0/dist/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <title>ЕМЛ :: Сведения об ученике</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">
+            <img src="https://m-1ml.ru/images/eml_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ЕМЛ
+          </a>
+        </nav>
+        <div class="collapm-1 navbar-collapm-1" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="index.html">Главная</a>
+            <a class="nav-item nav-link" href="teachers.html">Преподаватели</a>
+            <a class="nav-item nav-link" href="groups.html">Группы</a>
+            <a class="nav-item nav-link" href="lessons.html">Предметы</a>
+            <a class="nav-item nav-link active" href="students.html">Ученики</a>
+            <a class="nav-item nav-link" href="marks.html">Отметки</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="container-fluid">
+      <h1 class="text-center">Сведения об ученике</h1>
+
+      <div class="container-fluid">
+        <form action="javascript:void(0);" method="POST" onsubmit="saveData()">
+          <div class="form-group row">
+            <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control" id="inputID" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">Имя</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputSurname" class="col-sm-2 col-form-label">Фамилия</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputSurname" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputBirthday" class="col-sm-2 col-form-label">Дата рождения</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputBirthday" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputSex" class="col-sm-2 col-form-label">Пол</label>
+            <div class="col-sm-10">
+              <select class="custom-select" id="inputSex">
+                <option value="M" selected>Мужской</option>
+                <option value="F">Женский</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputGroup" class="col-sm-2 col-form-label">Группа</label>
+            <div class="col-sm-10">
+              <select class="custom-select" id="inputGroup"></select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Отметки</label>
+            <div class="col-sm-10" id="divMarks">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="modalInfoTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modalInfoTitle"></h5>
+              <button type="button" class="clom-1" data-dismiss="modal" aria-label="Clom-1">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!--
+            <div class="modal-footer text-center">
+              <button type="button" class="btn btn-ok" data-dismiss="modal">OK</button>
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./lib/jquery-3.4.1/jquery-3.4.1.js"></script>
+    <script src="./lib/popper/popper.js"></script>
+    <script src="./lib/bootstrap-4.0.0/dist/js/bootstrap.js"></script>
+    <script src="student.js"></script>
+    <!-- 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

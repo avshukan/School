@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="./lib/bootstrap-4.0.0/dist/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>ЕМЛ :: Группы</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">
+            <img src="https://seml.ru/images/eml_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ЕМЛ
+          </a>
+        </nav>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="index.html">Главная</a>
+            <a class="nav-item nav-link" href="teachers.html">Преподаватели</a>
+            <a class="nav-item nav-link active" href="groups.html">Группы</a>
+            <a class="nav-item nav-link" href="lessons.html">Предметы</a>
+            <a class="nav-item nav-link" href="students.html">Ученики</a>
+            <a class="nav-item nav-link" href="marks.html">Отметки</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="container-fluid">
+      <h1 class="text-center">Группы</h1>
+      <h5 id="counter" class="text-center"></h5>
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-sm text-left px-0">
+            <form class="form-inline text-right" action="javascript:void(0);" method="POST" onsubmit="setFilter(1)">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                    <span id="filterStack" class="fa-stack">
+                      <i class="fa fa-filter fa-stack-1x"></i>
+                      <i class="fa fa-remove fa-stack-1x text-danger"></i>
+                    </span>
+                  </span>
+                </div>
+                <input id="filterWord" type="text" size="1" class="form-control" placeholder="Фильтр" aria-label="Filter" aria-describedby="basic-addon1">
+              </div>
+            </form>
+          </div>
+          <div class="col-sm text-right px-0">
+            <button type="button" class="btn" onclick="window.location='group.html';">
+              <i class="fa fa-plus fa-fw"></i>Добавить группу
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Группа</th>
+            <th scope="col">Преподаватель</th>
+            <th scope="col">Ученики</th>
+            <th scope="col" class="text-right">Действия</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+      </table>
+
+      <nav aria-label="pagination">
+        <ul id="pagination" class="pagination"></ul>
+      </nav>
+    
+    </div>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="modaldeleteGroup" tabindex="-1" role="dialog" aria-labelledby="modaldeleteGroupTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modaldeleteGroupTitle">Подтвердите действие</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <div>
+              Вы действительно хотите удалить группу ?
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет, я передумал</button>
+            <button type="button" class="btn btn-primary" id="modaldeleteGroupSubmit">Да, удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./lib/jquery-3.4.1/jquery-3.4.1.js"></script>
+    <script src="./lib/popper/popper.js"></script>
+    <script src="./lib/bootstrap-4.0.0/dist/js/bootstrap.js"></script>
+    <script src="groups.js"></script>
+    <!-- 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
